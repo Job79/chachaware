@@ -20,6 +20,3 @@ Recovering the secret is possible using the following steps:
 - The distributor will do a key exchange between recoveryPub and storedPriv.
 - After doing HKDF with sha256 the secret is recovered.
 - Decrypt the files using the secret.
-
-## License
-bsd3
