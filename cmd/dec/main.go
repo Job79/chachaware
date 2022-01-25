@@ -33,7 +33,7 @@ func getScanners(w workerPool) []scanner.Scanner {
 	// Configuration of targeted directories and extensions
 	return []scanner.Scanner{
 		{
-			Dir:        "/home/job/test",
+			Dir:        "./target",
 			Extensions: map[string]struct{}{".encr": {}},
 			Action:     w.enqueueFile,
 		},
