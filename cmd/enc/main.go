@@ -1,11 +1,11 @@
 package main
 
 import (
+	"chachaware/internal/crypto"
+	"chachaware/internal/model/scanner"
 	"encoding/base64"
 	"fmt"
 	"os"
-	"chachaware/crypto"
-	"chachaware/scanner"
 	"sync"
 )
 

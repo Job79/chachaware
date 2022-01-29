@@ -1,10 +1,10 @@
 package main
 
 import (
+	"chachaware/internal/crypto"
 	"encoding/base64"
 	"fmt"
 	"os"
-	"chachaware/crypto"
 )
 
 func main() {
