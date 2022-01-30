@@ -8,9 +8,9 @@ The following things where the design goals:
 ## How does it work?
 When chachaware is started it does the following things:
 - Generate a random X25519 key pair. (recoveryPriv, recoveryPub)
+- Do a key exchange with a stored X25519 public key. (storedPub)
 - Forget the recoveryPriv and store the recoveryPub.
-- Do a key exchange with another X25519 key. (storedPriv)
-- Use HKDF with sha256 on the result of the key exchange and use the result as the secret to encrypt the files.
+- Use HKDF with sha256 on the result of the key exchange(storedPub, recoveryPriv) and use the result as the secret to encrypt the files.
 - Then start scanning the disk for target files and encrypt them using chacha20. (without poly1305 because we don't need authentication but do need performance)
 
 ## Recovery
